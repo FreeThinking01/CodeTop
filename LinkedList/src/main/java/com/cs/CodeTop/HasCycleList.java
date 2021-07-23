@@ -14,7 +14,7 @@ public class HasCycleList {
 
     public boolean hasCycle(ListNode head) {
 
-        
+
         return false;
     }
 
