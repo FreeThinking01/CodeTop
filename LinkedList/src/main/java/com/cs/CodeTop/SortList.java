@@ -7,13 +7,13 @@ package com.cs.CodeTop;
 * */
 public class SortList {
     //自顶向下
-    public ListNode sortList(ListNode head) {
+    public ListNode sortList1(ListNode head) {
         if(head == null || head.next == null){
             return head;
         }
         ListNode midNode = findMidNode(head);
-        ListNode head1 = sortList(head);
-        ListNode head2 = sortList(midNode);
+        ListNode head1 = sortList1(head);
+        ListNode head2 = sortList1(midNode);
         return mergeTwoList(head1,head2);
     }
 
@@ -65,5 +65,9 @@ public class SortList {
         }
         return head;
     }
+    //2. 迭代
+    public ListNode sortList2(ListNode head) {
 
+        return null;
+    }
 }
