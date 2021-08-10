@@ -1,6 +1,8 @@
 package com.cs.CodeTop;
 
 
+import java.util.Arrays;
+
 /**
 *下一个排序
 *
@@ -13,7 +15,37 @@ package com.cs.CodeTop;
 * */
 public class NextPermutation {
 
-    public void nextPermutation(int[] nums) {
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,3,2};
+//        Arrays.sort(nums, 0, nums.length);
 
+        NextPermutation test = new NextPermutation();
+        test.nextPermutation(nums);
+        for (int i = 0; i < nums.length; i++) {
+            System.out.println(nums[i]);
+        }
+    }
+
+    public void nextPermutation(int[] nums) {
+        int n = nums.length;
+        for (int i = n - 2; i >= 0; i--){
+           if(nums[i] < nums[i + 1]){
+               Arrays.sort(nums, i + 1, n);
+               for (int k = i + 1; k < n ; k++) {
+                   if (nums[k] > nums[i]){
+                       swap(nums, i, k);
+                       return;
+                   }
+               }
+
+           }
+         }
+        Arrays.sort(nums);
+    }
+
+    private void swap(int[] nums, int i, int j){
+        int tmp = nums[j];
+        nums[j] = nums[i];
+        nums[i] = tmp;
     }
 }
