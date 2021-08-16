@@ -14,7 +14,7 @@ import java.util.List;
 * */
 public class MergeBetween {
 
-    //以头排序
+    //以左端点排序
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (int[] a,int[] b)->a[0]-b[0]);
         List<int[]> res = new ArrayList();
@@ -33,7 +33,7 @@ public class MergeBetween {
         }
         return res.toArray(new int[res.size()][]);
     }
-    //以尾排序(不可行)[[2,3],[4,5],[6,7],[8,9],[1,10]]
+    //以右端点排序从左到右合并(不可行)[[2,3],[4,5],[6,7],[8,9],[1,10]]
     public int[][] merge2(int[][] intervals) {
         Arrays.sort(intervals, (int[] a,int[] b)->a[1]-b[1]);
         List<int[]> res = new ArrayList();
@@ -53,4 +53,7 @@ public class MergeBetween {
         }
         return res.toArray(new int[res.size()][]);
     }
+
+    //以左端点排序从左到右合并，以此类推，以右端点排序应该从有到左排序（略）
+
 }
