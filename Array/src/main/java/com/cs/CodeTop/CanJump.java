@@ -15,6 +15,12 @@ package com.cs.CodeTop;
 public class CanJump {
 
     public boolean canJump(int[] nums) {
-        return false;
+        int maxLength = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (maxLength >= i){
+                maxLength = Math.max(maxLength, i + nums[i]);
+            }
+        }
+        return maxLength >= nums.length - 1 ? true : false;
     }
 }
