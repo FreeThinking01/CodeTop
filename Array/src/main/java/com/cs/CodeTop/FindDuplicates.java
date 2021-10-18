@@ -28,11 +28,6 @@ public class FindDuplicates {
     }
 
     //方法2 哈希表 O(n),O(n)
-    public List<Integer> findDuplicates2(int[] nums) {
-        List<Integer> res = new ArrayList<>();
-
-        return res;
-    }
 
     //方法3 标记法
     public List<Integer> findDuplicates3(int[] nums) {
@@ -46,4 +41,7 @@ public class FindDuplicates {
 
         return res;
     }
+
+    //二进制异或 数组元素可能有0所以不行
+
 }
