@@ -57,5 +57,44 @@ public class FindKthLargest {
         return j;
     }
 
+    //优先队列 建堆然后输出k次
+    public int findKthLargest2(int[] nums, int k) {
+        int n = nums.length;
+        //建堆
+        for (int i = n / 2 - 1; i >= 0 ; i--) {
+            adjustHeap(nums, i, n);
+        }
+        //调整堆
+        for (int j = n - 1; j > n - k ; j--) {
+            swap(nums, 0, j);
+            adjustHeap(nums, 0, j);
+        }
+        return nums[0];
+    }
+
+
+
+    private void adjustHeap(int[] nums, int i, int n) {
+
+        for (int k = i * 2 + 1; k < n; k = 2 * k + 1) {
+            if (k < n - 1 && nums[k] < nums[k + 1]){
+                k = k + 1;
+            }
+            if (nums[k] > nums[i]){
+                swap(nums, k, i);
+                i = k;
+            }else {
+                break;
+            }
+        }
+
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
 
 }
