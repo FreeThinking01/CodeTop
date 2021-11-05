@@ -9,6 +9,6 @@ package com.cs.CodeTop;
 public class TrapRainWater {
 
     public int trapRainWater(int[][] heightMap) {
-
+        return 0;
     }
 }
