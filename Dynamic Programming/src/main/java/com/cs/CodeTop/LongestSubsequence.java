@@ -34,7 +34,7 @@ public class LongestSubsequence {
         Arrays.fill(dp, 1);
 
         for (int i = 0; i < n; i++) {
-            if (map.containsKey(arr[i] - difference) && map.get(arr[i] - difference) < i){
+            if (map.containsKey(arr[i] - difference)){
                 dp[i] = dp[map.get(arr[i] - difference)] + 1;
             }
             map.put(arr[i], i);
