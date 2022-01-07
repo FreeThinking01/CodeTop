@@ -26,26 +26,49 @@ public class NextPermutation {
         }
     }
 
+    //使用了库函数
     public void nextPermutation(int[] nums) {
         int n = nums.length;
-        for (int i = n - 2; i >= 0; i--){
-           if(nums[i] < nums[i + 1]){
-               Arrays.sort(nums, i + 1, n);
-               for (int k = i + 1; k < n ; k++) {
-                   if (nums[k] > nums[i]){
-                       swap(nums, i, k);
-                       return;
-                   }
-               }
-
-           }
-         }
-        Arrays.sort(nums);
+        for(int i = n - 2; i >= 0; i--){
+            if (nums[i] < nums[i + 1]){
+                Arrays.sort(nums, i + 1, n);
+                for (int k = i + 1; k < n; k++){
+                    if(nums[k] > nums[i]){
+                        swap(nums, i, k);
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     private void swap(int[] nums, int i, int j){
         int tmp = nums[j];
         nums[j] = nums[i];
         nums[i] = tmp;
+    }
+
+    //不使用库函数
+    public void nextPermutation1(int[] nums) {
+        int n = nums.length;
+        for(int i = n - 2; i >= 0; i--){
+            if(nums[i] < nums[i + 1]){
+                for (int j = n - 1; j > i ; j--) {
+                    if(nums[j] > nums[i]){
+                        swap(nums, i, j);
+                        reverse(nums, i + 1, n - 1);
+                        return;
+                    }
+                }
+            }
+        }
+        //没找到，整体逆序，反转数组
+        reverse(nums, 0, n - 1);
+    }
+
+    private void reverse(int[] nums, int left, int right) {
+        while(left < right){
+            swap(nums, left++, right--);
+        }
     }
 }
