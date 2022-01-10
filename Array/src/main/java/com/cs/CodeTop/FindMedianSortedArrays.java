@@ -114,10 +114,4 @@ public class FindMedianSortedArrays {
         }
     }
 
-    /*
-     * 划分数组
-     * */
-    public double findMedianSortedArrays4(int[] nums1, int[] nums2) {
-        return 0;
-    }
 }
