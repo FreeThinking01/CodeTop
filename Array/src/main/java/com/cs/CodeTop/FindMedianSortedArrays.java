@@ -14,6 +14,7 @@ public class FindMedianSortedArrays {
         int[] nums1 = {1,2};
         int[] nums2 = {3,4};
         FindMedianSortedArrays test = new FindMedianSortedArrays();
+        ThreadLocal threadLocal = new ThreadLocal<>();
         double res = test.findMedianSortedArrays2(nums1, nums2);
         System.out.println(res);
 

@@ -44,7 +44,7 @@ public class RestoreIpAddresses {
         for(int i = 0; i < 3; i++){
             if(isValid(s, index, index + i)){
                 track.add(s.substring(index, index + i + 1));
-                dfs(s, segment + 1, index + i);
+                dfs(s, segment + 1, index + i + 1);
                 track.removeLast();
             }
         }
